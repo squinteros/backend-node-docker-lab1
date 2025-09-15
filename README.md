@@ -1,6 +1,19 @@
 ## Docker Compose
 Laboratorio 1 - Mi stack en docker compose
 
+Tuve problemas con la creacion de usuario, se utilizo alternativamente 
+Invoke-WebRequest -Uri http://localhost:3000/users -Method POST -Headers @{"Content-Type"="application/json"} -Body '{"nombre":"Sebastian Quinteros", "edad":28}'
+
+pero sin resultados
+Invoke-WebRequest : Se ha terminado la conexión: La conexión ha terminado de forma inesperada.
+En línea: 1 Carácter: 1
++ Invoke-WebRequest -Uri http://localhost:3000/users -Method POST -Head ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], WebException
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
+
+    
+
 1.  **Configurar variables**
     .env:
     
@@ -24,3 +37,6 @@ Laboratorio 1 - Mi stack en docker compose
 
     * **Listar usuarios**
       `curl http://localhost:3000/users`
+
+
+
