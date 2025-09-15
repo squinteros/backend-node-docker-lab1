@@ -1,15 +1,16 @@
 ## Docker Compose
 Laboratorio 1 - Mi stack en docker compose
 
-1.  **Configurar variables**
-    .env:
+1.  **Estructura .env**
     
     ```
     DB_HOST=db
-    DB_PORT=3306
     DB_USER=root
     DB_PASSWORD=password123
     DB_DATABASE=backend_db
+    MYSQL_ROOT_PASSWORD=password123
+    MYSQL_DATABASE=backend_db
+    DB_TYPE=mysql
     ```
 
 2.  **Levantar los contenedores:**
