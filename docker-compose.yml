@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  backend-app:
+    build: .
+    image: ghcr.io/squinteros/backend-node-docker-lab1:lab-1
+    container_name: backend-node-docker-lab1-app
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: mysql:9.4
+    container_name: backend-node-docker-lab1-db
+    env_file:
+      - .env
+    volumes:
+      - db-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+volumes:
+  db-data:
